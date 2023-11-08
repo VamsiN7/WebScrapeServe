@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-scraper
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web-scraper
+  template:
+    metadata:
+      labels:
+        app: web-scraper
+    spec:
+      containers:
+      - name: web-scraper
+        image: vamsin7/web-scraper:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
